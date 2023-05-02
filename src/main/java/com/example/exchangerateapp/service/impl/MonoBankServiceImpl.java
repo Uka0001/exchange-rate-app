@@ -10,7 +10,6 @@ import com.example.exchangerateapp.repository.MonoBankRepository;
 import com.example.exchangerateapp.service.MonoBankService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,7 @@ public class MonoBankServiceImpl implements MonoBankService {
     private final MonoBankRepository monoBankRepository;
     private final MonoBankRateMapper monoBankRateMapper;
     @Value("${api.url.mono-bank}")
-    private static String monoUrl;
+    private String monoUrl;
 
     @Override
     public void saveRates() {

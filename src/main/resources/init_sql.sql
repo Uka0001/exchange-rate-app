@@ -1,0 +1,1 @@
+CREATE DATABASE exchange_rate_db;

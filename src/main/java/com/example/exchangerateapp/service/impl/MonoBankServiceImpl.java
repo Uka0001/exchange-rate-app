@@ -30,14 +30,15 @@ public class MonoBankServiceImpl implements MonoBankService {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(monoUrl, String.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        MonoBankRate[] rates;
+        MonoBankRateDto[] rates;
         try {
-            rates = objectMapper.readValue(response.getBody(), MonoBankRate[].class);
+            rates = objectMapper.readValue(response.getBody(), MonoBankRateDto[].class);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(
+                    "Exception occurred while saving results from MonoBank url" + monoUrl, e);
         }
-        for (MonoBankRate rate : rates) {
-            monoBankRepository.save(rate);
+        for (MonoBankRateDto rate : rates) {
+            monoBankRepository.save(monoBankRateMapper.toModel(rate));
         }
     }
 

@@ -1,0 +1,15 @@
+#POSTGRES_CRIDENTIALS
+spring.datasource.url=jdbc:postgresql://localhost:5432/${your DB_NAME local variable}
+spring.datasource.username=${your DB_USERNAME local variable}
+spring.datasource.password=${your DB_PASSWORD local variable}
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+
+#URL PROPERTIES
+api.url.mono-bank=${your URL_MONOBANK local variable}
+api.url.privat-bank=${your URL_PRIVATBANK local variable}
+api.url.min-fin=${your URL_MINFIN local variable}
+
+#SWAGGER PROPERTIES
+springfox.documentation.swagger-ui.enabled=true
+springfox.documentation.swagger-ui.path=/swagger-ui.html

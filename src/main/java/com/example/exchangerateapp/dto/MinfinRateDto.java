@@ -1,7 +1,5 @@
 package com.example.exchangerateapp.dto;
 
-import java.time.LocalDateTime;
-
 public record MinfinRateDto(
         Long id,
         String pointDate,

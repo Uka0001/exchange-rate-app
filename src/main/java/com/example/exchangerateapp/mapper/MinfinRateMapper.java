@@ -6,18 +6,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MinfinRateMapper {
-    public MinfinRateDto toDto(MinfinRate minfinRate) {
+    public MinfinRateDto toDto(MinfinRate model) {
         return new MinfinRateDto(
-                minfinRate.getId(),
-                minfinRate.getPointDate(),
-                minfinRate.getDate(),
-                minfinRate.getAsk(),
-                minfinRate.getBid(),
-                minfinRate.getDesk(),
-                minfinRate.getTrendAsk(),
-                minfinRate.getTrendBid(),
-                minfinRate.getCurrency(),
-                minfinRate.getComment()
+                model.getId(),
+                model.getPointDate(),
+                model.getDate(),
+                model.getAsk(),
+                model.getBid(),
+                model.getDesk(),
+                model.getTrendAsk(),
+                model.getTrendBid(),
+                model.getCurrency(),
+                model.getComment()
         );
     }
 

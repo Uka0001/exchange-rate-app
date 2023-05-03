@@ -4,34 +4,29 @@ import com.example.exchangerateapp.dto.MonoBankRateDto;
 import com.example.exchangerateapp.model.MonoBankRate;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.TimeZone;
-
 @Component
 public class MonoBankRateMapper {
-    public MonoBankRateDto toDto(MonoBankRate monoBankRate) {
+    public MonoBankRateDto toDto(MonoBankRate model) {
         return new MonoBankRateDto(
-                monoBankRate.getId(),
-                monoBankRate.getCurrencyCodeA(),
-                monoBankRate.getCurrencyCodeB(),
-                monoBankRate.getDate(),
-                monoBankRate.getRateSell(),
-                monoBankRate.getRateBuy(),
-                monoBankRate.getRateCross()
+                model.getId(),
+                model.getCurrencyCodeA(),
+                model.getCurrencyCodeB(),
+                model.getDate(),
+                model.getRateSell(),
+                model.getRateBuy(),
+                model.getRateCross()
         );
     }
 
-    public MonoBankRate toModel(MonoBankRateDto rateDto) {
+    public MonoBankRate toModel(MonoBankRateDto dto) {
         MonoBankRate monoBankRate = new MonoBankRate();
-        monoBankRate.setRateBuy(rateDto.rateBuy());
-        monoBankRate.setRateCross(rateDto.rateCross());
-        monoBankRate.setRateSell(rateDto.rateSell());
-        monoBankRate.setDate(rateDto.date());
-        monoBankRate.setCurrencyCodeA(rateDto.currencyCodeA());
-        monoBankRate.setCurrencyCodeB(rateDto.currencyCodeB());
-        monoBankRate.setId(rateDto.id());
+        monoBankRate.setRateBuy(dto.rateBuy());
+        monoBankRate.setRateCross(dto.rateCross());
+        monoBankRate.setRateSell(dto.rateSell());
+        monoBankRate.setDate(dto.date());
+        monoBankRate.setCurrencyCodeA(dto.currencyCodeA());
+        monoBankRate.setCurrencyCodeB(dto.currencyCodeB());
+        monoBankRate.setId(dto.id());
         return monoBankRate;
     }
 }

@@ -11,15 +11,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "mono_bank_rates")
-public class MonoBankRate {
+@Table(name = "privat_bank_rates")
+public class PrivatBankRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int currencyCodeA;
-    private int currencyCodeB;
-    private long date;
-    private float  rateSell;
-    private float  rateBuy;
-    private float  rateCross;
+    private String ccy;
+    private String base_ccy;
+    private float buy;
+    private float sale;
+    private String date;
 }

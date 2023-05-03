@@ -6,6 +6,7 @@ build/
 !**/src/test/**/build/
 src/main/resources/.env
 src/main/resources/application.properties
+src/main/resources/Java Test Task - Backend - TAGSoft - Apr 2023.pdf
 
 ### STS ###
 .apt_generated

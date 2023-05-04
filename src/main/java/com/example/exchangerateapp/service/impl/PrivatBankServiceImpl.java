@@ -1,7 +1,12 @@
 package com.example.exchangerateapp.service.impl;
 
+import com.example.exchangerateapp.dto.ExchangeRateDto;
 import com.example.exchangerateapp.dto.PrivatBankRateDto;
+import com.example.exchangerateapp.mapper.ExchangeRateMapper;
 import com.example.exchangerateapp.mapper.PrivatBankRateMapper;
+import com.example.exchangerateapp.model.ExchangeRate;
+import com.example.exchangerateapp.model.PrivatBankRate;
+import com.example.exchangerateapp.repository.ExchangeRateRepository;
 import com.example.exchangerateapp.repository.PrivatBankRepository;
 import com.example.exchangerateapp.service.PrivatBankService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +22,8 @@ import org.springframework.web.client.RestTemplate;
 public class PrivatBankServiceImpl implements PrivatBankService {
     private final PrivatBankRepository privatBankRepository;
     private final PrivatBankRateMapper privatBankRateMapper;
+    private final ExchangeRateRepository exchangeRateRepository;
+    private final ExchangeRateMapper exchangeRateMapper;
 
     @Value("${api.url.privat-bank}")
     private String privatUrl;
@@ -35,7 +42,11 @@ public class PrivatBankServiceImpl implements PrivatBankService {
                     "Exception occurred while saving results from PrivatBank url: " + privatUrl, e);
         }
         for (PrivatBankRateDto rate : rates) {
-            privatBankRepository.save(privatBankRateMapper.toModel(rate));
+            PrivatBankRate privatBankModel = privatBankRateMapper.toModel(rate);
+            privatBankRepository.save(privatBankModel);
+            ExchangeRateDto exchangeRateDto = exchangeRateMapper.privatModelToDto(privatBankModel);
+            ExchangeRate exchangeRateModel = exchangeRateMapper.toModel(exchangeRateDto);
+            exchangeRateRepository.save(exchangeRateModel);
         }
     }
 }

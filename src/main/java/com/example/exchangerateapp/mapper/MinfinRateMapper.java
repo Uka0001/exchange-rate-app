@@ -16,7 +16,7 @@ public class MinfinRateMapper {
                 model.getDesk(),
                 model.getTrendAsk(),
                 model.getTrendBid(),
-                model.getCurrency(),
+                String.valueOf(model.getCurrency()),
                 model.getComment()
         );
     }
@@ -29,7 +29,7 @@ public class MinfinRateMapper {
         minfinRate.setBid(dto.bid());
         minfinRate.setDesk(dto.desk());
         minfinRate.setComment(dto.comment());
-        minfinRate.setCurrency(dto.currency());
+        minfinRate.setCurrency(Integer.parseInt(dto.currency()));
         minfinRate.setPointDate(dto.pointDate());
         minfinRate.setTrendAsk(dto.trendAsk());
         minfinRate.setTrendBid(dto.trendBid());

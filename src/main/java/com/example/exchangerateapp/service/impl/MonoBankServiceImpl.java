@@ -3,9 +3,13 @@ package com.example.exchangerateapp.service.impl;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.example.exchangerateapp.dto.ExchangeRateDto;
 import com.example.exchangerateapp.dto.MonoBankRateDto;
+import com.example.exchangerateapp.mapper.ExchangeRateMapper;
 import com.example.exchangerateapp.mapper.MonoBankRateMapper;
+import com.example.exchangerateapp.model.ExchangeRate;
 import com.example.exchangerateapp.model.MonoBankRate;
+import com.example.exchangerateapp.repository.ExchangeRateRepository;
 import com.example.exchangerateapp.repository.MonoBankRepository;
 import com.example.exchangerateapp.service.MonoBankService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,11 +20,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+
 @Service
 @RequiredArgsConstructor
 public class MonoBankServiceImpl implements MonoBankService {
     private final MonoBankRepository monoBankRepository;
     private final MonoBankRateMapper monoBankRateMapper;
+    private final ExchangeRateRepository exchangeRateRepository;
+    private final ExchangeRateMapper exchangeRateMapper;
     @Value("${api.url.mono-bank}")
     private String monoUrl;
 
@@ -38,23 +45,12 @@ public class MonoBankServiceImpl implements MonoBankService {
                     "Exception occurred while saving results from MonoBank url" + monoUrl, e);
         }
         for (MonoBankRateDto rate : rates) {
-            monoBankRepository.save(monoBankRateMapper.toModel(rate));
+            if (rate.currencyCodeB() == 980) {
+                monoBankRepository.save(monoBankRateMapper.toModel(rate));
+                ExchangeRateDto exchangeRateDto = exchangeRateMapper.monoDtoToDto(rate);
+                ExchangeRate exchangeRateModel = exchangeRateMapper.toModel(exchangeRateDto);
+                exchangeRateRepository.save(exchangeRateModel);
+            }
         }
     }
-
-    @Override
-    public List<MonoBankRateDto> getRates() {
-        return monoBankRepository.findAll().stream()
-                .map(rate -> monoBankRateMapper.toDto(rate))
-                .toList();
-    }
-
-    @Override
-    public List<MonoBankRateDto> getRatesByPeriod(LocalDate start, LocalDate finish) {
-        return monoBankRepository.findAll().stream()
-                .map(rate -> monoBankRateMapper.toDto(rate))
-                .toList();
-    }
-
-
 }

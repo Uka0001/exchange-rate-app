@@ -4,6 +4,9 @@ import com.example.exchangerateapp.dto.MonoBankRateDto;
 import com.example.exchangerateapp.model.MonoBankRate;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 @Component
 public class MonoBankRateMapper {
     public MonoBankRateDto toDto(MonoBankRate model) {

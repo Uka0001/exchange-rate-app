@@ -1,6 +1,5 @@
 package com.example.exchangerateapp.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,18 +8,18 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @Entity
-@Table(name = "privat_bank_rates")
-public class PrivatBankRate {
+@Table(name = "exchange_rates")
+public class ExchangeRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String ccy;
-    @Column(name = "base_ccy")
-    private String baseCcy;
+    private LocalDate date;
     private float buy;
     private float sale;
-    private String date;
+    private int currencyCode;
 }

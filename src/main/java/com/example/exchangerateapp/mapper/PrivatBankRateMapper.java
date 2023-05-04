@@ -12,7 +12,7 @@ public class PrivatBankRateMapper {
         return new PrivatBankRateDto(
                 model.getId(),
                 model.getCcy(),
-                model.getBase_ccy(),
+                model.getBaseCcy(),
                 model.getBuy(),
                 model.getSale(),
                 model.getDate()
@@ -22,7 +22,7 @@ public class PrivatBankRateMapper {
     public PrivatBankRate toModel(PrivatBankRateDto dto) {
         PrivatBankRate privatBankRate = new PrivatBankRate();
         privatBankRate.setId(dto.id());
-        privatBankRate.setBase_ccy(dto.base_ccy());
+        privatBankRate.setBaseCcy(dto.base_ccy());
         privatBankRate.setCcy(dto.ccy());
         privatBankRate.setSale(dto.sale());
         privatBankRate.setBuy(dto.buy());

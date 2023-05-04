@@ -1,14 +1,10 @@
 package com.example.exchangerateapp.service.impl;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import com.example.exchangerateapp.dto.ExchangeRateDto;
 import com.example.exchangerateapp.dto.MonoBankRateDto;
 import com.example.exchangerateapp.mapper.ExchangeRateMapper;
 import com.example.exchangerateapp.mapper.MonoBankRateMapper;
 import com.example.exchangerateapp.model.ExchangeRate;
-import com.example.exchangerateapp.model.MonoBankRate;
 import com.example.exchangerateapp.repository.ExchangeRateRepository;
 import com.example.exchangerateapp.repository.MonoBankRepository;
 import com.example.exchangerateapp.service.MonoBankService;
@@ -19,7 +15,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 
 @Service
 @RequiredArgsConstructor

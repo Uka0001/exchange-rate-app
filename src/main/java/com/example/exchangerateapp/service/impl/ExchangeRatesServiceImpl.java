@@ -1,12 +1,9 @@
 package com.example.exchangerateapp.service.impl;
 
-import com.example.exchangerateapp.dto.ExchangeRateDto;
 import com.example.exchangerateapp.dto.ResultRateDto;
 import com.example.exchangerateapp.mapper.ExchangeRateMapper;
 import com.example.exchangerateapp.mapper.MinfinRateMapper;
 import com.example.exchangerateapp.mapper.ResultRateMapper;
-import com.example.exchangerateapp.model.MinfinRate;
-import com.example.exchangerateapp.model.MonoBankRate;
 import com.example.exchangerateapp.repository.ExchangeRateRepository;
 import com.example.exchangerateapp.repository.MinfinRepository;
 import com.example.exchangerateapp.repository.MonoBankRepository;
@@ -14,7 +11,6 @@ import com.example.exchangerateapp.repository.PrivatBankRepository;
 import com.example.exchangerateapp.service.ExchangeRatesService;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

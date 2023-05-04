@@ -1,12 +1,12 @@
 package com.example.exchangerateapp.model;
 
-public enum CCU {
+public enum CurrencyCode {
     EUR(980),
     USD(840);
 
     private final int code;
 
-    CCU(int code) {
+    CurrencyCode(int code) {
         this.code = code;
     }
 

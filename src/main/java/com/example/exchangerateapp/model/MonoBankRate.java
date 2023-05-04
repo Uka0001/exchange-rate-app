@@ -8,9 +8,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Entity
@@ -22,7 +19,7 @@ public class MonoBankRate {
     private int currencyCodeA;
     private int currencyCodeB;
     private long date;
-    private float  rateSell;
-    private float  rateBuy;
-    private float  rateCross;
+    private float rateSell;
+    private float rateBuy;
+    private float rateCross;
 }

@@ -2,9 +2,8 @@ package com.example.exchangerateapp.mapper;
 
 import com.example.exchangerateapp.dto.PrivatBankRateDto;
 import com.example.exchangerateapp.model.PrivatBankRate;
-import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
+import org.springframework.stereotype.Component;
 
 @Component
 public class PrivatBankRateMapper {

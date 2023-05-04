@@ -1,6 +1,7 @@
 package com.example.exchangerateapp.mapper;
 
 import com.example.exchangerateapp.dto.MinfinRateDto;
+import com.example.exchangerateapp.model.CurrencyCode;
 import com.example.exchangerateapp.model.MinfinRate;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +30,11 @@ public class MinfinRateMapper {
         minfinRate.setBid(dto.bid());
         minfinRate.setDesk(dto.desk());
         minfinRate.setComment(dto.comment());
-        minfinRate.setCurrency(Integer.parseInt(dto.currency()));
+        CurrencyCode currencyCode
+                = CurrencyCode.valueOf(dto.currency().toUpperCase());
+        String currencyCodeString
+                = String.valueOf(currencyCode.getCode());
+        minfinRate.setCurrency(Integer.parseInt(currencyCodeString));
         minfinRate.setPointDate(dto.pointDate());
         minfinRate.setTrendAsk(dto.trendAsk());
         minfinRate.setTrendBid(dto.trendBid());

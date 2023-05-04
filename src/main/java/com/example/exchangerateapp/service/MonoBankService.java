@@ -8,8 +8,4 @@ import java.util.List;
 public interface MonoBankService {
 
     void saveRates();
-
-    List<MonoBankRateDto> getRates();
-
-    List<MonoBankRateDto> getRatesByPeriod(LocalDate start, LocalDate finish);
 }

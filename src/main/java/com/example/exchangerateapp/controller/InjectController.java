@@ -5,7 +5,6 @@ import com.example.exchangerateapp.service.MonoBankService;
 import com.example.exchangerateapp.service.PrivatBankService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 

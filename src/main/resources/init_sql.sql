@@ -46,6 +46,21 @@ create table public.privat_bank_rates
 alter table public.privat_bank_rates
     owner to postgres;
 
+create table public.exchange_rates
+(
+    id            bigserial
+        primary key,
+    buy           real    not null,
+    currency_code integer not null,
+    date          date,
+    sale          real    not null
+);
+
+alter table public.exchange_rates
+    owner to postgres;
+
+
+
 
 
 

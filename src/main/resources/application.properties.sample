@@ -10,6 +10,6 @@ api.url.mono-bank=${your URL_MONOBANK local variable}
 api.url.privat-bank=${your URL_PRIVATBANK local variable}
 api.url.min-fin=${your URL_MINFIN local variable}
 
-#SWAGGER PROPERTIES
-springfox.documentation.swagger-ui.enabled=true
-springfox.documentation.swagger-ui.path=/swagger-ui.html
+#SPRINGDOC SWAGGER PROPERTIES
+springdoc.swagger-ui.enabled=true
+springdoc.swagger-ui.path=/swagger-ui.html

@@ -23,6 +23,6 @@ public class MinfinRate {
     private float desk;
     private float trendAsk;
     private float trendBid;
-    private String currency;
+    private int currency;
     private String comment;
 }

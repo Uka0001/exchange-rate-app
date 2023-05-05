@@ -1,4 +1,4 @@
-# Exchange rate web-app
+# 💸 Exchange rate web-app
 
 ## 📔 Summary:
 Web application that loads data(exchange rates) from a third-party service

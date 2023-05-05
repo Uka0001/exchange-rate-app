@@ -19,7 +19,7 @@ public class InjectController {
     @PostConstruct
     public void init() {
         monoBankService.saveRates();
-//        minfinService.saveRates();
+        minfinService.saveRates();
         privatBankService.saveRates();
     }
 }
